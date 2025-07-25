@@ -45,12 +45,17 @@
             cursor: pointer;
         }
 
+
+
         .mobile-icons img {
-            height: 8vw;
-            max-height: 50px;
-            min-height: 30px;
-            width: auto;
+            width: 100%;
+            height: auto;
+            max-width: 80px;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+            /* Mantém proporção quadrada sem distorção */
         }
+
 
         .mobile-icons a {
             padding: 5px;
@@ -77,13 +82,26 @@
                     <img src="IMG/dice's on board 1.png" alt="dices-on-board" />
                 </a>
 
-                <!-- Ícones Mobile -->
-                <div class="mobile-icons d-flex gap-2">
-                    <a href="#" title="Pokémon"><img src="IMG/Pokémon.png" alt="Pokémon" /></a>
-                    <a href="#" title="Yu-Gi-Oh!"><img src="IMG/YU-Gi-OH!!!.png" alt="Yu-Gi-Oh!" /></a>
-                    <a href="#" title="Magic"><img src="IMG/magic.png" alt="Magic" /></a>
-                    <a href="#" title="RPG"><img src="IMG/rpg.png" alt="RPG" /></a>
-                    <a href="#" title="Acessórios"><img src="IMG/Acessórios.png" alt="Acessórios" /></a>
+                <div class="mobile-icons row justify-content-between"
+                    style="width: 100%; max-width: 600px; margin: auto;">
+                    <div class="col-auto w-10 p-1">
+                        <a href="#" title="Pokémon"><img src="IMG/Pokémon.png" alt="Pokémon"
+                                class="img-fluid w-100" /></a>
+                    </div>
+                    <div class="col-auto w-10 p-1">
+                        <a href="#" title="Yu-Gi-Oh!"><img src="IMG/YU-Gi-OH!!!.png" alt="Yu-Gi-Oh!"
+                                class="img-fluid w-100" /></a>
+                    </div>
+                    <div class="col-auto w-10 p-1">
+                        <a href="#" title="Magic"><img src="IMG/magic.png" alt="Magic" class="img-fluid w-100" /></a>
+                    </div>
+                    <div class="col-auto w-10 p-1">
+                        <a href="#" title="RPG"><img src="IMG/rpg.png" alt="RPG" class="img-fluid w-100" /></a>
+                    </div>
+                    <div class="col-auto w-10 p-1">
+                        <a href="#" title="Acessórios"><img src="IMG/Acessórios.png" alt="Acessórios"
+                                class="img-fluid w-100" /></a>
+                    </div>
                 </div>
 
                 <!-- Menu Dropdown Desktop -->

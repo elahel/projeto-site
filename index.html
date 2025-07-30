@@ -85,21 +85,22 @@
                 <div class="mobile-icons row justify-content-between"
                     style="width: 100%; max-width: 600px; margin: auto;">
                     <div class="col-auto w-10 p-1">
-                        <a href="#" title="Pokémon"><img src="IMG/Pokémon.png" alt="Pokémon"
+                        <a href="pokemon.html" title="Pokémon"><img src="IMG/Pokémon.png" alt="Pokémon"
                                 class="img-fluid w-100" /></a>
                     </div>
                     <div class="col-auto w-10 p-1">
-                        <a href="#" title="Yu-Gi-Oh!"><img src="IMG/YU-Gi-OH!!!.png" alt="Yu-Gi-Oh!"
+                        <a href="yugioh.html" title="Yu-Gi-Oh!"><img src="IMG/YU-Gi-OH!!!.png" alt="Yu-Gi-Oh!"
                                 class="img-fluid w-100" /></a>
                     </div>
                     <div class="col-auto w-10 p-1">
-                        <a href="#" title="Magic"><img src="IMG/magic.png" alt="Magic" class="img-fluid w-100" /></a>
+                        <a href="magic.html" title="Magic"><img src="IMG/magic.png" alt="Magic"
+                                class="img-fluid w-100" /></a>
                     </div>
                     <div class="col-auto w-10 p-1">
-                        <a href="#" title="RPG"><img src="IMG/rpg.png" alt="RPG" class="img-fluid w-100" /></a>
+                        <a href="rpg.html" title="RPG"><img src="IMG/rpg.png" alt="RPG" class="img-fluid w-100" /></a>
                     </div>
                     <div class="col-auto w-10 p-1">
-                        <a href="#" title="Acessórios"><img src="IMG/Acessórios.png" alt="Acessórios"
+                        <a href="acessorios.html" title="Acessórios"><img src="IMG/Acessórios.png" alt="Acessórios"
                                 class="img-fluid w-100" /></a>
                     </div>
                 </div>
@@ -108,58 +109,79 @@
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav gap-3">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Pokémon
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
-                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
-                                <li><a class="dropdown-item" href="#">Boosters Packs</a></li>
-                                <li><a class="dropdown-item" href="#">Blisters</a></li>
+                            <div class="d-flex align-items-center">
+                                <!-- Link principal -->
+                                <a class="nav-link" href="pokemon.html">Pokémon</a>
+
+                                <!-- Botão de dropdown independente -->
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownPokemon" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownPokemon">
+                                <li><a class="dropdown-item" href="cartas-avulsas.html">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="deck-box.html">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="boosters.html">Boosters Packs</a></li>
+                                <li><a class="dropdown-item" href="blisters.html">Blisters</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Yu-Gi-Oh!
-                            </a>
-                            <ul class="dropdown-menu">
+                            <div class="d-flex align-items-center">
+                                <!-- Link principal -->
+                                <a class="nav-link" href="yugioh.html">YU-Gi-OH!</a>
+
+                                <!-- Botão de dropdown independente -->
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownyugioh" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowyugioh">
                                 <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
                                 <li><a class="dropdown-item" href="#">Boosters Avulsos</a></li>
                                 <li><a class="dropdown-item" href="#">Decks Estruturais</a></li>
                                 <li><a class="dropdown-item" href="#">Booster Box</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Magic
-                            </a>
-                            <ul class="dropdown-menu">
+                            <div class="d-flex align-items-center">
+                                <!-- Link principal -->
+                                <a class="nav-link" href="magic.html">Magic</a>
+
+                                <!-- Botão de dropdown independente -->
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownmagic" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowmagic">
                                 <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
                                 <li><a class="dropdown-item" href="#">Booster Box</a></li>
                                 <li><a class="dropdown-item" href="#">Kits Iniciais</a></li>
                                 <li><a class="dropdown-item" href="#">Bundle</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                RPG
-                            </a>
-                            <ul class="dropdown-menu">
+                            <div class="d-flex align-items-center">
+                                <!-- Link principal -->
+                                <a class="nav-link" href="rpg.html">RPG</a>
+
+                                <!-- Botão de dropdown independente -->
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownrpg" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowrpg">
                                 <li><a class="dropdown-item" href="#">Dados</a></li>
                                 <li><a class="dropdown-item" href="#">Livros</a></li>
                                 <li><a class="dropdown-item" href="#">Mapas</a></li>
                                 <li><a class="dropdown-item" href="#">Miniaturas</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Acessórios
-                            </a>
-                            <ul class="dropdown-menu">
+                            <div class="d-flex align-items-center">
+                                <!-- Link principal -->
+                                <a class="nav-link" href="acessorios.html">Acessórios</a>
+
+                                <!-- Botão de dropdown independente -->
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownacessorios" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowacessorios">
                                 <li><a class="dropdown-item" href="#">Deck Box</a></li>
                                 <li><a class="dropdown-item" href="#">Sleeves</a></li>
                                 <li><a class="dropdown-item" href="#">Playmats</a></li>

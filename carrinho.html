@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <title>Carrinho - Dice's on Board</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #F1F1F1;
+        }
+
+        .navbar,
+        footer {
+            background-color: #C0C0C0 !important;
+            color: #000;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="IMG/logo.png" alt="logomarca" />
+                    <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" />
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        <h1 class="text-center mb-4">Seu Carrinho</h1>
+
+        <div id="carrinho-container" class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="carrinho-itens">
+                    <!-- Itens do carrinho aparecerão aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-4">
+            <h5>Total de itens: <span id="total-itens">0</span></h5>
+            <button id="btn-limpar" class="btn btn-outline-danger">Limpar Carrinho</button>
+        </div>
+
+        <!-- Formulário para dados do comprador -->
+        <form id="form-compra" class="mb-4">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome Completo:</label>
+                <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" required />
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Número para Contato (com DDD):</label>
+                <input type="tel" id="telefone" class="form-control" placeholder="Ex: 5511999998888" required pattern="[0-9]{10,15}" />
+                <div class="form-text">Somente números, sem espaços ou símbolos.</div>
+            </div>
+            <button type="submit" class="btn btn-success">Finalizar Compra via WhatsApp</button>
+        </form>
+    </main>
+
+    <footer class="text-center py-3">
+        <p class="mb-0">© 2025 Dices on Board. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function carregarItensCarrinho() {
+            const tbody = document.getElementById('carrinho-itens');
+            const totalItensSpan = document.getElementById('total-itens');
+            tbody.innerHTML = '';
+
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            if (!Array.isArray(carrinho)) carrinho = [];
+
+            if (carrinho.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="text-center">Carrinho vazio.</td></tr>`;
+                totalItensSpan.textContent = '0';
+                return;
+            }
+
+            let totalQuantidade = 0;
+            carrinho.forEach((item, index) => {
+                const nome = item.nome || 'Produto';
+                const quantidade = item.quantidade || 1;
+                totalQuantidade += quantidade;
+
+                const tr = document.createElement('tr');
+
+                const tdNome = document.createElement('td');
+                tdNome.textContent = nome;
+
+                const tdQtd = document.createElement('td');
+                tdQtd.textContent = quantidade;
+
+                const tdAcoes = document.createElement('td');
+
+                const btnRemover = document.createElement('button');
+                btnRemover.textContent = 'Remover';
+                btnRemover.className = 'btn btn-danger btn-sm';
+                btnRemover.onclick = () => {
+                    removerItemCarrinho(index);
+                };
+
+                tdAcoes.appendChild(btnRemover);
+
+                tr.appendChild(tdNome);
+                tr.appendChild(tdQtd);
+                tr.appendChild(tdAcoes);
+
+                tbody.appendChild(tr);
+            });
+
+            totalItensSpan.textContent = totalQuantidade;
+        }
+
+        function removerItemCarrinho(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            if (!Array.isArray(carrinho)) carrinho = [];
+
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            carregarItensCarrinho();
+            // Se quiser atualizar contador do ícone, pode chamar função aqui
+        }
+
+        function limparCarrinho() {
+            if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+                localStorage.removeItem('carrinho');
+                carregarItensCarrinho();
+                // Se quiser atualizar contador do ícone, pode chamar função aqui
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarItensCarrinho();
+
+            document.getElementById('btn-limpar').addEventListener('click', limparCarrinho);
+
+            const formCompra = document.getElementById('form-compra');
+            formCompra.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nome = document.getElementById('nome').value.trim();
+                const telefone = document.getElementById('telefone').value.trim();
+                let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                if (!Array.isArray(carrinho)) carrinho = [];
+
+                if (carrinho.length === 0) {
+                    alert("Seu carrinho está vazio!");
+                    return;
+                }
+
+                let listaItens = '';
+                carrinho.forEach((item, i) => {
+                    listaItens += `${i + 1}. ${item.nome || 'Produto'} - Quantidade: ${item.quantidade || 1}\n`;
+                });
+
+                const mensagem =
+`Olá, meu nome é ${nome}.
+Gostaria de fazer um pedido com os seguintes itens:
+${listaItens}
+Meu contato é: ${telefone}`;
+
+                const mensagemURL = encodeURIComponent(mensagem);
+
+                const numeroLoja = '5512981857317';
+
+                const urlWhats = `https://wa.me/${numeroLoja}?text=${mensagemURL}`;
+
+                window.open(urlWhats, '_blank');
+
+                setTimeout(() => {
+                    window.location.href = 'index.html'; // Ajuste se sua home tiver outro caminho
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -5,8 +5,6 @@
     <title>Dicesonboard</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
@@ -45,28 +43,53 @@
             cursor: pointer;
         }
 
-
-
         .mobile-icons img {
             width: 100%;
             height: auto;
             max-width: 80px;
             object-fit: contain;
             aspect-ratio: 1/1;
-            /* Mantém proporção quadrada sem distorção */
         }
 
+        @supports not (aspect-ratio: 1/1) {
+            .mobile-icons img {
+                height: 80px;
+            }
+        }
 
         .mobile-icons a {
             padding: 5px;
         }
 
-        /* Carrossel responsivo proporcional */
         .carousel-inner img {
             width: 100%;
             height: auto;
             max-height: 600px;
             object-fit: cover;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+        }
+
+        /* Margens laterais responsivas na navbar */
+        .navbar .container-fluid {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .navbar .container-fluid {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .navbar .container-fluid {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
         }
     </style>
 </head>
@@ -75,8 +98,6 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex justify-content-between align-items-center">
-
-                <!-- Logotipo -->
                 <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                     <img src="IMG/logo.png" alt="logomarca" />
                     <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" />
@@ -103,91 +124,114 @@
                         <a href="acessorios.html" title="Acessórios"><img src="IMG/Acessórios.png" alt="Acessórios"
                                 class="img-fluid w-100" /></a>
                     </div>
+                    <div class="col-auto w-10 p-1">
+                        <a href="carrinho.html" title="Carrinho" class="position-relative" id="carrinho-icon">
+                            <img src="IMG/carrinho.png" alt="Carrinho" class="img-fluid w-100" />
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="carrinho-contador">
+                                0
+                                <span class="visually-hidden">itens no carrinho</span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Menu Dropdown Desktop -->
+                <!-- Menu Desktop -->
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav gap-3">
+                        <!-- Pokémon -->
                         <li class="nav-item dropdown">
                             <div class="d-flex align-items-center">
-                                <!-- Link principal -->
                                 <a class="nav-link" href="pokemon.html">Pokémon</a>
-
-                                <!-- Botão de dropdown independente -->
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownPokemon" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownPokemon"
                                     data-bs-toggle="dropdown" aria-expanded="false"></a>
                             </div>
                             <ul class="dropdown-menu" aria-labelledby="dropdownPokemon">
-                                <li><a class="dropdown-item" href="cartas-avulsas.html">Cartas Avulsas</a></li>
-                                <li><a class="dropdown-item" href="deck-box.html">Deck Box</a></li>
-                                <li><a class="dropdown-item" href="boosters.html">Boosters Packs</a></li>
-                                <li><a class="dropdown-item" href="blisters.html">Blisters</a></li>
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="#">Boosters Packs</a></li>
+                                <li><a class="dropdown-item" href="#">Blisters</a></li>
                             </ul>
                         </li>
+                        <!-- Yu-Gi-Oh! -->
                         <li class="nav-item dropdown">
                             <div class="d-flex align-items-center">
-                                <!-- Link principal -->
                                 <a class="nav-link" href="yugioh.html">YU-Gi-OH!</a>
-
-                                <!-- Botão de dropdown independente -->
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownyugioh" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownyugioh"
                                     data-bs-toggle="dropdown" aria-expanded="false"></a>
                             </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowyugioh">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownyugioh">
                                 <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
                                 <li><a class="dropdown-item" href="#">Boosters Avulsos</a></li>
                                 <li><a class="dropdown-item" href="#">Decks Estruturais</a></li>
                                 <li><a class="dropdown-item" href="#">Booster Box</a></li>
                             </ul>
                         </li>
+                        <!-- Magic -->
                         <li class="nav-item dropdown">
                             <div class="d-flex align-items-center">
-                                <!-- Link principal -->
                                 <a class="nav-link" href="magic.html">Magic</a>
-
-                                <!-- Botão de dropdown independente -->
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownmagic" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownmagic"
                                     data-bs-toggle="dropdown" aria-expanded="false"></a>
                             </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowmagic">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownmagic">
                                 <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
                                 <li><a class="dropdown-item" href="#">Booster Box</a></li>
                                 <li><a class="dropdown-item" href="#">Kits Iniciais</a></li>
                                 <li><a class="dropdown-item" href="#">Bundle</a></li>
                             </ul>
                         </li>
+                        <!-- RPG -->
                         <li class="nav-item dropdown">
                             <div class="d-flex align-items-center">
-                                <!-- Link principal -->
                                 <a class="nav-link" href="rpg.html">RPG</a>
-
-                                <!-- Botão de dropdown independente -->
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownrpg" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownrpg" data-bs-toggle="dropdown"
+                                    aria-expanded="false"></a>
                             </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowrpg">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownrpg">
                                 <li><a class="dropdown-item" href="#">Dados</a></li>
                                 <li><a class="dropdown-item" href="#">Livros</a></li>
                                 <li><a class="dropdown-item" href="#">Mapas</a></li>
                                 <li><a class="dropdown-item" href="#">Miniaturas</a></li>
                             </ul>
                         </li>
+                        <!-- Acessórios -->
                         <li class="nav-item dropdown">
                             <div class="d-flex align-items-center">
-                                <!-- Link principal -->
                                 <a class="nav-link" href="acessorios.html">Acessórios</a>
-
-                                <!-- Botão de dropdown independente -->
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownacessorios" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownacessorios"
                                     data-bs-toggle="dropdown" aria-expanded="false"></a>
                             </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowacessorios">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownacessorios">
                                 <li><a class="dropdown-item" href="#">Deck Box</a></li>
                                 <li><a class="dropdown-item" href="#">Sleeves</a></li>
                                 <li><a class="dropdown-item" href="#">Playmats</a></li>
                                 <li><a class="dropdown-item" href="#">Marcadores</a></li>
                             </ul>
                         </li>
+                        <!-- Carrinho -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link position-relative" href="carrinho.html" title="Carrinho"
+                                    id="carrinho-icon-desktop">
+                                    Carrinho
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        id="carrinho-contador-desktop" style="display:none">
+                                        0
+                                        <span class="visually-hidden">itens no carrinho</span>
+                                    </span>
+                                </a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdowncarrinho"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowncarrinho">
+                                <li><a class="dropdown-item" href="#">Ver Carrinho</a></li>
+                                <li><a class="dropdown-item" href="#">Finalizar Compra</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -198,7 +242,6 @@
         <h1 class="text-center">Bem-vindo à Dice's on Board</h1>
         <p class="text-center">Explore o universo dos jogos de cartas, RPG e acessórios.</p>
 
-        <!-- Carrossel original -->
         <div id="carouselDices" class="carousel slide mb-5" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselDices" data-bs-slide-to="0" class="active"
@@ -234,26 +277,53 @@
         <p class="mb-0">© 2025 Dices on Board. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script hover dropdown desktop -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (window.innerWidth >= 992) {
-                const dropdowns = document.querySelectorAll('.navbar .dropdown');
-                dropdowns.forEach(dropdown => {
-                    dropdown.addEventListener('mouseover', function () {
-                        const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(this.querySelector('.dropdown-toggle'));
-                        bsDropdown.show();
-                    });
-                    dropdown.addEventListener('mouseleave', function () {
-                        const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(this.querySelector('.dropdown-toggle'));
-                        bsDropdown.hide();
-                    });
+        function atualizarContadorCarrinho() {
+            const contadorMobile = document.getElementById('carrinho-contador');
+            const contadorDesktop = document.getElementById('carrinho-contador-desktop');
+            let total = 0;
+
+            try {
+                const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+                carrinho.forEach(item => {
+                    total += item.quantidade || 1;
+                });
+
+                [contadorMobile, contadorDesktop].forEach(contador => {
+                    if (contador) {
+                        contador.textContent = total;
+                        contador.style.display = total > 0 ? 'inline-block' : 'none';
+                    }
+                });
+
+            } catch (e) {
+                console.error("Erro ao ler o carrinho:", e);
+                [contadorMobile, contadorDesktop].forEach(contador => {
+                    if (contador) contador.style.display = 'none';
                 });
             }
-        });
+        }
+
+        function adicionarItemAoCarrinho(item) {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const index = carrinho.findIndex(i => i.id === item.id);
+
+            if (index > -1) {
+                carrinho[index].quantidade += item.quantidade;
+            } else {
+                carrinho.push(item);
+            }
+
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            atualizarContadorCarrinho();
+        }
+
+        document.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
+        window.adicionarItemAoCarrinho = adicionarItemAoCarrinho;
     </script>
 </body>
 

@@ -67,7 +67,8 @@
             </div>
             <div class="mb-3">
                 <label for="telefone" class="form-label">Número para Contato (com DDD):</label>
-                <input type="tel" id="telefone" class="form-control" placeholder="Ex: 5511999998888" required pattern="[0-9]{10,15}" />
+                <input type="tel" id="telefone" class="form-control" placeholder="Ex: 5511999998888" required
+                    pattern="[0-9]{10,15}" />
                 <div class="form-text">Somente números, sem espaços ou símbolos.</div>
             </div>
             <button type="submit" class="btn btn-success">Finalizar Compra via WhatsApp</button>
@@ -173,7 +174,7 @@
                 });
 
                 const mensagem =
-`Olá, meu nome é ${nome}.
+                    `Olá, meu nome é ${nome}.
 Gostaria de fazer um pedido com os seguintes itens:
 ${listaItens}
 Meu contato é: ${telefone}`;

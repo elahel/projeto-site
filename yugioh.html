@@ -20,7 +20,7 @@
             top: 0;
             z-index: 1030;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            background-color: #C0C0C0 !important;
+            background-color: #B0B0B0 !important;
             transition: background-color 0.3s ease;
         }
 
@@ -249,45 +249,101 @@
                     <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" />
                 </a>
 
-                <!-- Menu desktop -->
+                 <!-- Menu Desktop -->
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav d-flex flex-row align-items-center gap-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pokemon.html">
-                                <img src="IMG/Pokémon.png" alt="Pokémon" />
-                            </a>
+                    <ul class="navbar-nav gap-3">
+                        <!-- Pokémon -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link" href="pokemon.html">Pokémon</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownPokemon"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownPokemon">
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="#">Boosters Packs</a></li>
+                                <li><a class="dropdown-item" href="#">Blisters</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="yugioh.html">
-                                <img src="IMG/YU-Gi-OH!!!.png" alt="Yu-Gi-Oh!" />
-                            </a>
+                        <!-- Yu-Gi-Oh! -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link" href="yugioh.html">YU-Gi-OH!</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownyugioh"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownyugioh">
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Boosters Avulsos</a></li>
+                                <li><a class="dropdown-item" href="#">Decks Estruturais</a></li>
+                                <li><a class="dropdown-item" href="#">Booster Box</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="magic.html">
-                                <img src="IMG/magic.png" alt="Magic" />
-                            </a>
+                        <!-- Magic -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link" href="magic.html">Magic</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownmagic"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownmagic">
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Booster Box</a></li>
+                                <li><a class="dropdown-item" href="#">Kits Iniciais</a></li>
+                                <li><a class="dropdown-item" href="#">Bundle</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="rpg.html">
-                                <img src="IMG/rpg.png" alt="RPG" />
-                            </a>
+                        <!-- RPG -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link" href="rpg.html">RPG</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownrpg" data-bs-toggle="dropdown"
+                                    aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownrpg">
+                                <li><a class="dropdown-item" href="#">Dados</a></li>
+                                <li><a class="dropdown-item" href="#">Livros</a></li>
+                                <li><a class="dropdown-item" href="#">Mapas</a></li>
+                                <li><a class="dropdown-item" href="#">Miniaturas</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="acessorios.html">
-                                <img src="IMG/Acessórios.png" alt="Acessórios" />
-                            </a>
+                        <!-- Acessórios -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link" href="acessorios.html">Acessórios</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownacessorios"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownacessorios">
+                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="#">Sleeves</a></li>
+                                <li><a class="dropdown-item" href="#">Playmats</a></li>
+                                <li><a class="dropdown-item" href="#">Marcadores</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item position-relative">
-                            <a class="nav-link" href="carrinho.html" id="carrinho-icon-desktop">
-                                <img src="IMG/carrinho.png" alt="Carrinho" />
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                    id="carrinho-contador-desktop" style="display:none">
-                                    0
-                                    <span class="visually-hidden">itens no carrinho</span>
-                                </span>
-                            </a>
+                        <!-- Carrinho -->
+                        <li class="nav-item dropdown">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link position-relative" href="carrinho.html" title="Carrinho"
+                                    id="carrinho-icon-desktop">
+                                    Carrinho
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        id="carrinho-contador-desktop" style="display:none">
+                                        0
+                                        <span class="visually-hidden">itens no carrinho</span>
+                                    </span>
+                                </a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdowncarrinho"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdowncarrinho">
+                                <li><a class="dropdown-item" href="#">Ver Carrinho</a></li>
+                                <li><a class="dropdown-item" href="#">Finalizar Compra</a></li>
+                            </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>

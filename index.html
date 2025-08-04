@@ -104,24 +104,6 @@
             }
         }
 
-        /* Ajustes para a badge do carrinho */
-        .nav-item.position-relative a.nav-link {
-            position: relative;
-        }
-
-        #carrinho-icon-desktop .badge,
-        #carrinho-icon .badge {
-            font-size: 0.65rem;
-            padding: 0.25em 0.4em;
-            top: 0.25rem;
-            right: 0.25rem;
-        }
-
-        .badge.bg-danger {
-            font-size: 0.75rem;
-            padding: 0.35em 0.5em;
-        }
-
         @media (min-width: 768px) {
             .navbar-brand img:first-child {
                 width: 60px;
@@ -144,7 +126,6 @@
             }
         }
 
-
         footer {
             background-color: #B0B0B0 !important;
             color: #222;
@@ -163,7 +144,7 @@
                 </a>
                 <!-- Menu Desktop -->
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav gap-3">
+                    <ul class="navbar-nav gap-3 align-items-center">
                         <!-- Pokémon -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="pokemon.html" id="dropdownPokemon"
@@ -235,27 +216,21 @@
                             </ul>
                         </li>
                         <!-- Carrinho -->
-                        <li class="nav-item dropdown">
-                            <div class="d-flex align-items-center">
-                                <a class="nav-link position-relative" href="carrinho.html" title="Carrinho"
-                                    id="carrinho-icon-desktop">
-                                    Carrinho
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                        id="carrinho-contador-desktop" style="display:none">
-                                        0
-                                        <span class="visually-hidden">itens no carrinho</span>
-                                    </span>
-                                </a>
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdowncarrinho"
-                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
-                            </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowncarrinho">
-                                <li><a class="dropdown-item" href="#">Ver Carrinho</a></li>
-                                <li><a class="dropdown-item" href="#">Finalizar Compra</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item">
+                            <a href="carrinho.html" class="nav-link position-relative p-0 d-inline-block" style="width: 40px;">
+                                <img src="IMG/carrinho.png" alt="Carrinho" class="img-fluid" />
 
+                                <!-- Badge mobile centralizada -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-50 start-50 translate-middle d-lg-none" id="carrinho-contador-mobile">
+                                    0
+                                </span>
+
+                                <!-- Badge desktop no canto superior esquerdo -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-0 start-0 translate-middle d-none d-lg-inline" id="carrinho-contador-desktop">
+                                    0
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -263,7 +238,7 @@
     </header>
 
     <!-- Barra de ícones mobile -->
-    <nav class="mobile-icons-bar d-lg-none px-3 py-2 border-top border-bottom bg-light">
+    <nav class="mobile-icons-bar d-lg-none px-3 py- border-top border-bottom bg-light">
         <div class="d-flex justify-content-between align-items-center gap-2 overflow-auto flex-nowrap">
             <a href="pokemon.html" title="Pokémon" class="flex-shrink-0">
                 <img src="IMG/Pokémon.png" alt="Pokémon" class="img-fluid mobile-icon-img" />
@@ -282,8 +257,7 @@
             </a>
             <a href="carrinho.html" title="Carrinho" class="position-relative flex-shrink-0" id="carrinho-icon">
                 <img src="IMG/carrinho.png" alt="Carrinho" class="img-fluid mobile-icon-img" />
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                    id="carrinho-contador">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="carrinho-contador">
                     0
                     <span class="visually-hidden">itens no carrinho</span>
                 </span>
@@ -335,48 +309,40 @@
 
     <script>
         function atualizarContadorCarrinho() {
-            const contadorMobile = document.getElementById('carrinho-contador');
+            const contadorMobile = document.getElementById('carrinho-contador-mobile');
             const contadorDesktop = document.getElementById('carrinho-contador-desktop');
+            const contadorMobileIcon = document.getElementById('carrinho-contador');
             let total = 0;
 
             try {
                 const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                if (!Array.isArray(carrinho)) throw new Error("Carrinho não é array");
 
                 carrinho.forEach(item => {
                     total += item.quantidade || 1;
                 });
 
-                [contadorMobile, contadorDesktop].forEach(contador => {
-                    if (contador) {
-                        contador.textContent = total;
-                        contador.style.display = total > 0 ? 'inline-block' : 'none';
-                    }
-                });
-
+                if (contadorMobile) {
+                    contadorMobile.textContent = total;
+                    contadorMobile.style.display = total > 0 ? 'inline-block' : 'none';
+                }
+                if (contadorDesktop) {
+                    contadorDesktop.textContent = total;
+                    contadorDesktop.style.display = total > 0 ? 'inline-block' : 'none';
+                }
+                if (contadorMobileIcon) {
+                    contadorMobileIcon.textContent = total;
+                    contadorMobileIcon.style.display = total > 0 ? 'inline-block' : 'none';
+                }
             } catch (e) {
-                console.error("Erro ao ler o carrinho:", e);
-                [contadorMobile, contadorDesktop].forEach(contador => {
-                    if (contador) contador.style.display = 'none';
-                });
+                console.error("Erro ao ler carrinho do localStorage:", e);
+                if (contadorMobile) contadorMobile.style.display = 'none';
+                if (contadorDesktop) contadorDesktop.style.display = 'none';
+                if (contadorMobileIcon) contadorMobileIcon.style.display = 'none';
             }
-        }
-
-        function adicionarItemAoCarrinho(item) {
-            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            const index = carrinho.findIndex(i => i.id === item.id);
-
-            if (index > -1) {
-                carrinho[index].quantidade += item.quantidade;
-            } else {
-                carrinho.push(item);
-            }
-
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            atualizarContadorCarrinho();
         }
 
         document.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
-        window.adicionarItemAoCarrinho = adicionarItemAoCarrinho;
     </script>
 </body>
 

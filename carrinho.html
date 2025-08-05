@@ -2,260 +2,263 @@
 <html lang="pt-BR">
 
 <head>
-    <title>Carrinho - Dice's on Board</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho - Dice's on Board</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="icon" href="IMG/logoetipo.png" type="image/x-icon" />
+  <style>
+    body {
+      background-color: #F1F1F1;
+    }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    .navbar,
+    footer {
+      background-color: #B0B0B0 !important;
+      color: #000;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" href="IMG/logoetipo.png" type="image/x-icon" />
+    main {
+      padding: 1rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: auto;
+    }
 
-    <style>
-        body {
-            background-color: #F1F1F1;
-        }
+    .badge {
+      font-size: 0.7rem;
+    }
 
-        .navbar,
-        footer {
-            background-color: #B0B0B0 !important;
-            color: #000;
-        }
+    table img {
+      width: 50px;
+      height: auto;
+    }
 
-        main {
-            padding: 1rem;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .badge {
-            font-size: 0.7rem;
-        }
-
-        table img {
-            width: 50px;
-            height: auto;
-        }
-
-        .table td,
-        .table th {
-            vertical-align: middle;
-        }
-    </style>
+    .table td,
+    .table th {
+      vertical-align: middle;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-                    <img src="IMG/logo.png" alt="logomarca" width="50" />
-                    <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" width="150" />
-                </a>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <img src="IMG/logo.png" alt="logomarca" width="50" />
+          <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" width="150" />
+        </a>
+      </div>
+    </nav>
+  </header>
 
-    <main class="container my-4">
-        <h1 class="text-center mb-4">Seu Carrinho</h1>
+  <main class="container my-4">
+    <h1 class="text-center mb-4">Seu Carrinho</h1>
 
-        <div id="carrinho-container" class="table-responsive">
-            <table class="table table-bordered align-middle text-center">
-                <thead class="table-light">
-                    <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="carrinho-itens">
-                    <!-- Itens do carrinho aparecerão aqui -->
-                </tbody>
-            </table>
-        </div>
+    <div id="carrinho-container" class="table-responsive">
+      <table class="table table-bordered align-middle text-center">
+        <thead class="table-light">
+          <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="carrinho-itens"></tbody>
+      </table>
+    </div>
 
-        <div class="d-flex justify-content-between align-items-center mt-3 mb-4">
-            <h5>Total de itens: <span id="total-itens">0</span></h5>
-            <button id="btn-limpar" class="btn btn-outline-danger">Limpar Carrinho</button>
-        </div>
+    <div class="d-flex justify-content-between align-items-center mt-3 mb-4">
+      <h5>Total de itens: <span id="total-itens">0</span></h5>
+      <button id="btn-limpar" class="btn btn-outline-danger">Limpar Carrinho</button>
+    </div>
 
-        <!-- Formulário para dados do comprador -->
-        <form id="form-compra" class="mb-4">
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome Completo:</label>
-                <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" required />
-            </div>
-            <div class="mb-3">
-                <label for="telefone" class="form-label">Número para Contato (com DDD):</label>
-                <input type="tel" id="telefone" class="form-control" placeholder="Ex: 5511999998888" required
-                    pattern="[0-9]{10,15}" inputmode="numeric" />
-                <div class="form-text">Somente números, sem espaços ou símbolos.</div>
-            </div>
-            <div class="mb-3">
-                <label for="observacoes" class="form-label">Observações:</label>
-                <textarea id="observacoes" class="form-control" placeholder="Algo que devemos saber?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Finalizar Compra via WhatsApp</button>
-        </form>
-    </main>
+    <form id="form-compra" class="mb-4">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome Completo:</label>
+        <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" required />
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Número para Contato (com DDD):</label>
+        <input type="tel" id="telefone" class="form-control" placeholder="Ex: 5511999998888" required
+          pattern="[0-9]{10,15}" inputmode="numeric" />
+        <div class="form-text">Somente números, sem espaços ou símbolos.</div>
+      </div>
+      <div class="mb-3">
+        <label for="observacoes" class="form-label">Observações:</label>
+        <textarea id="observacoes" class="form-control" placeholder="Algo que devemos saber?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-finalizar">Finalizar Compra via WhatsApp</button>
+    </form>
+  </main>
 
-    <footer class="text-center py-3">
-        <p class="mb-0">© 2025 Dices on Board. Todos os direitos reservados.</p>
-    </footer>
+  <footer class="text-center py-3">
+    <p class="mb-0">© 2025 Dices on Board. Todos os direitos reservados.</p>
+  </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        function carregarItensCarrinho() {
-            const tbody = document.getElementById('carrinho-itens');
-            const totalItensSpan = document.getElementById('total-itens');
-            tbody.innerHTML = '';
+  <script>
+    function obterCarrinho() {
+      const dados = JSON.parse(localStorage.getItem('carrinho'));
+      return Array.isArray(dados) ? dados : [];
+    }
 
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            if (!Array.isArray(carrinho)) carrinho = [];
+    function carregarItensCarrinho() {
+      const tbody = document.getElementById('carrinho-itens');
+      const totalItensSpan = document.getElementById('total-itens');
+      tbody.innerHTML = '';
 
-            if (carrinho.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="3" class="text-center">Carrinho vazio.</td></tr>`;
-                totalItensSpan.textContent = '0';
-                return;
-            }
+      let carrinho = obterCarrinho();
 
-            let totalQuantidade = 0;
-            carrinho.forEach((item, index) => {
-                const nome = item.nome || 'Produto';
-                const quantidade = item.quantidade || 1;
-                totalQuantidade += quantidade;
+      if (carrinho.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" class="text-center">Carrinho vazio.</td></tr>`;
+        totalItensSpan.textContent = '0';
+        return;
+      }
 
-                const tr = document.createElement('tr');
+      let totalQuantidade = 0;
 
-                const tdNome = document.createElement('td');
-                tdNome.textContent = nome;
+      carrinho.forEach((item, index) => {
+        const nome = item.nome || 'Produto';
+        const quantidade = item.quantidade || 1;
+        totalQuantidade += quantidade;
 
-                const tdQtd = document.createElement('td');
-                tdQtd.className = 'd-flex justify-content-center align-items-center gap-2';
+        const tr = document.createElement('tr');
 
-                const btnMenos = document.createElement('button');
-                btnMenos.textContent = '-';
-                btnMenos.className = 'btn btn-outline-secondary btn-sm';
-                btnMenos.onclick = () => atualizarQuantidade(index, -1);
-
-                const spanQtd = document.createElement('span');
-                spanQtd.textContent = quantidade;
-
-                const btnMais = document.createElement('button');
-                btnMais.textContent = '+';
-                btnMais.className = 'btn btn-outline-secondary btn-sm';
-                btnMais.onclick = () => atualizarQuantidade(index, 1);
-
-                tdQtd.appendChild(btnMenos);
-                tdQtd.appendChild(spanQtd);
-                tdQtd.appendChild(btnMais);
-
-                const tdAcoes = document.createElement('td');
-                const btnRemover = document.createElement('button');
-                btnRemover.textContent = 'Remover';
-                btnRemover.className = 'btn btn-danger btn-sm';
-                btnRemover.onclick = () => removerItemCarrinho(index);
-
-                tdAcoes.appendChild(btnRemover);
-
-                tr.appendChild(tdNome);
-                tr.appendChild(tdQtd);
-                tr.appendChild(tdAcoes);
-
-                tbody.appendChild(tr);
-            });
-
-            totalItensSpan.textContent = totalQuantidade;
+        const tdNome = document.createElement('td');
+        if (item.imagem) {
+          tdNome.innerHTML = `<img src="${item.imagem}" alt="${nome}" width="50" class="me-2" />${nome}`;
+        } else {
+          tdNome.textContent = nome;
         }
 
-        function atualizarQuantidade(index, delta) {
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            if (!Array.isArray(carrinho)) carrinho = [];
+        const tdQtd = document.createElement('td');
+        tdQtd.className = 'd-flex justify-content-center align-items-center gap-2';
 
-            if (!carrinho[index]) return;
-            carrinho[index].quantidade = (carrinho[index].quantidade || 1) + delta;
+        const btnMenos = document.createElement('button');
+        btnMenos.textContent = '-';
+        btnMenos.className = 'btn btn-outline-secondary btn-sm';
+        btnMenos.setAttribute('aria-label', 'Diminuir quantidade');
+        btnMenos.onclick = () => atualizarQuantidade(index, -1);
 
-            if (carrinho[index].quantidade < 1) {
-                carrinho.splice(index, 1);
-            }
+        const spanQtd = document.createElement('span');
+        spanQtd.textContent = quantidade;
 
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            carregarItensCarrinho();
+        const btnMais = document.createElement('button');
+        btnMais.textContent = '+';
+        btnMais.className = 'btn btn-outline-secondary btn-sm';
+        btnMais.setAttribute('aria-label', 'Aumentar quantidade');
+        btnMais.onclick = () => atualizarQuantidade(index, 1);
+
+        tdQtd.appendChild(btnMenos);
+        tdQtd.appendChild(spanQtd);
+        tdQtd.appendChild(btnMais);
+
+        const tdAcoes = document.createElement('td');
+        const btnRemover = document.createElement('button');
+        btnRemover.textContent = 'Remover';
+        btnRemover.className = 'btn btn-danger btn-sm';
+        btnRemover.setAttribute('aria-label', 'Remover item');
+        btnRemover.onclick = () => removerItemCarrinho(index);
+
+        tdAcoes.appendChild(btnRemover);
+
+        tr.appendChild(tdNome);
+        tr.appendChild(tdQtd);
+        tr.appendChild(tdAcoes);
+
+        tbody.appendChild(tr);
+      });
+
+      totalItensSpan.textContent = totalQuantidade;
+    }
+
+    function atualizarQuantidade(index, delta) {
+      let carrinho = obterCarrinho();
+
+      if (!carrinho[index]) return;
+      carrinho[index].quantidade = (carrinho[index].quantidade || 1) + delta;
+
+      if (carrinho[index].quantidade < 1) {
+        carrinho.splice(index, 1);
+      }
+
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      carregarItensCarrinho();
+    }
+
+    function removerItemCarrinho(index) {
+      let carrinho = obterCarrinho();
+      carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      carregarItensCarrinho();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      carregarItensCarrinho();
+
+      document.getElementById('btn-limpar').addEventListener('click', () => {
+        if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+          localStorage.removeItem('carrinho');
+          carregarItensCarrinho();
+        }
+      });
+
+      document.getElementById('form-compra').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const telefone = document.getElementById('telefone').value.trim();
+        const observacoes = document.getElementById('observacoes').value.trim();
+        const btnFinalizar = document.getElementById('btn-finalizar');
+
+        if (nome.length < 3) {
+          alert("Por favor, insira um nome válido.");
+          return;
         }
 
-        function removerItemCarrinho(index) {
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            if (!Array.isArray(carrinho)) carrinho = [];
+        let carrinho = obterCarrinho();
 
-            carrinho.splice(index, 1);
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            carregarItensCarrinho();
+        if (carrinho.length === 0) {
+          alert("Seu carrinho está vazio!");
+          return;
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            carregarItensCarrinho();
+        let listaItens = '';
+        carrinho.forEach((item, i) => {
+          listaItens += `\n${i + 1}. ${item.nome || 'Produto'} - Quantidade: ${item.quantidade || 1}`;
+        });
 
-            const btnLimpar = document.getElementById('btn-limpar');
-            if (btnLimpar) {
-                btnLimpar.addEventListener('click', () => {
-                    if (confirm('Tem certeza que deseja limpar o carrinho?')) {
-                        localStorage.removeItem('carrinho');
-                        carregarItensCarrinho();
-                    }
-                });
-            }
-
-            const formCompra = document.getElementById('form-compra');
-            formCompra.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const nome = document.getElementById('nome').value.trim();
-                const telefone = document.getElementById('telefone').value.trim();
-                const observacoes = document.getElementById('observacoes').value.trim();
-                let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-                if (!Array.isArray(carrinho)) carrinho = [];
-
-                if (carrinho.length === 0) {
-                    alert("Seu carrinho está vazio!");
-                    return;
-                }
-
-                let listaItens = '';
-                carrinho.forEach((item, i) => {
-                    listaItens += `\n${i + 1}. ${item.nome || 'Produto'} - Quantidade: ${item.quantidade || 1}`;
-                });
-
-                const mensagem =
-                    `Olá, meu nome é ${nome}.
+        const mensagem =
+          `Olá, meu nome é ${nome}.
 Gostaria de fazer um pedido com os seguintes itens:
 ${listaItens}
 
 Meu contato é: ${telefone}
 ${observacoes ? `\nObservações: ${observacoes}` : ''}`;
 
-                const mensagemURL = encodeURIComponent(mensagem);
-                const numeroLoja = '5512981857317';
-                const urlWhats = `https://wa.me/${numeroLoja}?text=${mensagemURL}`;
+        const mensagemURL = encodeURIComponent(mensagem);
+        const numeroLoja = '5512981857317';
+        const urlWhats = `https://wa.me/${numeroLoja}?text=${mensagemURL}`;
 
-                window.open(urlWhats, '_blank');
-                localStorage.removeItem('carrinho');
+        btnFinalizar.disabled = true;
+        btnFinalizar.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Enviando...`;
 
-                setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 3000);
-            });
-        });
-    </script>
+        window.open(urlWhats, '_blank');
+        alert("Pedido enviado! Você será redirecionado para a página inicial.");
+        localStorage.removeItem('carrinho');
+
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 3000);
+      });
+    });
+  </script>
 </body>
-
-</html>
 
 </html>

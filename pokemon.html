@@ -223,8 +223,93 @@
                 </a>
                 <!-- Menu Desktop -->
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav gap-3">
-                        <!-- Mantido o menu original -->
+                    <ul class="navbar-nav gap-3 align-items-center">
+                        <!-- Pokémon -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pokemon.html" id="dropdownPokemon"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pokémon
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownPokemon">
+                                <li><a class="dropdown-item fw-bold text-primary" href="pokemon.html">Ver todos os produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="#">Boosters Packs</a></li>
+                                <li><a class="dropdown-item" href="#">Blisters</a></li>
+                            </ul>
+                        </li>
+                        <!-- Yu-Gi-Oh! -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="yugioh.html" id="dropdownyugioh"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                YU-Gi-OH!
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownyugioh">
+                                <li><a class="dropdown-item fw-bold text-primary" href="yugioh.html">Ver todos os produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Boosters Avulsos</a></li>
+                                <li><a class="dropdown-item" href="#">Decks Estruturais</a></li>
+                                <li><a class="dropdown-item" href="#">Booster Box</a></li>
+                            </ul>
+                        </li>
+                        <!-- Magic -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="magic.html" id="dropdownmagic"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Magic
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownmagic">
+                                <li><a class="dropdown-item fw-bold text-primary" href="magic.html">Ver todos os produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Cartas Avulsas</a></li>
+                                <li><a class="dropdown-item" href="#">Booster Box</a></li>
+                                <li><a class="dropdown-item" href="#">Kits Iniciais</a></li>
+                                <li><a class="dropdown-item" href="#">Bundle</a></li>
+                            </ul>
+                        </li>
+                        <!-- RPG -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="rpg.html" id="dropdownrpg"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                RPG
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownrpg">
+                                <li><a class="dropdown-item fw-bold text-primary" href="rpg.html">Ver todos os produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Dados</a></li>
+                                <li><a class="dropdown-item" href="#">Livros</a></li>
+                                <li><a class="dropdown-item" href="#">Mapas</a></li>
+                                <li><a class="dropdown-item" href="#">Miniaturas</a></li>
+                            </ul>
+                        </li>
+                        <!-- Acessórios -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="acessorios.html" id="dropdownacessorios"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Acessórios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownacessorios">
+                                <li><a class="dropdown-item fw-bold text-primary" href="acessorios.html">Ver todos os produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Deck Box</a></li>
+                                <li><a class="dropdown-item" href="#">Sleeves</a></li>
+                                <li><a class="dropdown-item" href="#">Playmats</a></li>
+                                <li><a class="dropdown-item" href="#">Marcadores</a></li>
+                            </ul>
+                        </li>
+                        <!-- Carrinho -->
+                        <li class="nav-item">
+                            <a href="carrinho.html" class="nav-link position-relative p-0 d-inline-block" style="width: 40px;">
+                                <img src="IMG/carrinho.png" alt="Carrinho" class="img-fluid" />
+
+                                <!-- Badge mobile centralizada -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-50 start-50 translate-middle d-lg-none" id="carrinho-contador-mobile">
+                                    0
+                                </span>
+
+                                <!-- Badge desktop no canto superior esquerdo -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-0 start-0 translate-middle d-none d-lg-inline" id="carrinho-contador-desktop">
+                                    0
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

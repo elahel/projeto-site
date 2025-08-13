@@ -221,9 +221,9 @@
                     <img src="IMG/logo.png" alt="logomarca" />
                     <img src="IMG/dice's on board 1.png" class="img-fluid" alt="dices-on-board" />
                 </a>
-                 <!-- Menu Desktop -->
+                <!-- Menu Desktop -->
                 <div class="desktop-menu collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav gap-3">
+                    <ul class="navbar-nav gap-3 align-items-center">
                         <!-- Pokémon -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="pokemon.html" id="dropdownPokemon"
@@ -295,27 +295,21 @@
                             </ul>
                         </li>
                         <!-- Carrinho -->
-                        <li class="nav-item dropdown">
-                            <div class="d-flex align-items-center">
-                                <a class="nav-link position-relative" href="carrinho.html" title="Carrinho"
-                                    id="carrinho-icon-desktop">
-                                    Carrinho
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                        id="carrinho-contador-desktop" style="display:none">
-                                        0
-                                        <span class="visually-hidden">itens no carrinho</span>
-                                    </span>
-                                </a>
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdowncarrinho"
-                                    data-bs-toggle="dropdown" aria-expanded="false"></a>
-                            </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdowncarrinho">
-                                <li><a class="dropdown-item" href="#">Ver Carrinho</a></li>
-                                <li><a class="dropdown-item" href="#">Finalizar Compra</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item">
+                            <a href="carrinho.html" class="nav-link position-relative p-0 d-inline-block" style="width: 40px;">
+                                <img src="IMG/carrinho.png" alt="Carrinho" class="img-fluid" />
 
+                                <!-- Badge mobile centralizada -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-50 start-50 translate-middle d-lg-none" id="carrinho-contador-mobile">
+                                    0
+                                </span>
+
+                                <!-- Badge desktop no canto superior esquerdo -->
+                                <span class="badge bg-danger rounded-pill position-absolute top-0 start-0 translate-middle d-none d-lg-inline" id="carrinho-contador-desktop">
+                                    0
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
